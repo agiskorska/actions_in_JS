@@ -72,14 +72,123 @@ function addUp (x, y = 2) { // y has been given a default parameter of 2
   console.log(x + y)
 }
 
-addUp(7) //=> 9
-addUp(7, 5) //=> 12
+addUp(7) // logs 9 to the console
+addUp(7, 5) // logs 12 to the consol
 ```
 
 ## Return Statements
+So far we have mostly been printing out data to our console once a function has done it’s work. In product terms though this isn’t very useful to our user as they are not often looking at the console. \
+We often want a function to give us a value back once it has completed its job so we can go ahead and show our users that in whichever way we please. \
+```js
+function timesBySeven (x) {
+  return x + 7
+}
 
-## Scope
+timesBySeven(2) //=> 14
+```
+
+We can now call that function in the same way but now we can store the output in a variable to be used at a later date
+```js
+const result = timesBySeven(2)
+console.log(`The answer is ${result}.`)
+```
+
+If you like, you can even call the function in line. Be careful to keep it readable though.
+```js
+console.log(`The answer is ${timesBySeven(2)}.`)
+```
 
 ## Arrow Functions
+### Statements
+There is another way to write out a function - with arrow notation. This notation was brought in during an update to Javascript but are not a replacement to traditional function declarations. Both have their place!
+
+The only way to give a 'name' to an arrow function is by assigning it to a variable. 
+```js
+const myArrowFunction = () => { 
+    console.log(“Something”)
+}
+```
+You don't have to assign it to a variable however and a very common place to see arrow functions is when passing a callback function. It's just a bit neater!
+```js
+const cats = ["Zelda", "Rumble", "Sam", "Flora"];
+
+cats.forEach(catName => { console.log(catName.toUpperCase())} )
+```
+As seen above, we can of course include paramaters in our arrow functions. They go inside the parentheses and if we only have one parameter we can get rid of the parentheses altogether. If you have no parameters, you must include the parentheses though!
+
+Another thing to note about arrow functions is that they have implicit binding, so `this` cannot be reassigned. If that seems a bit mysterious right now, that's okay, we will be covering binding a bit later in the course!
+
+### Expressions
+You will almost certainly come across arrow functions without the `{ }` code block. These are function expressions and as a general rule, we expect statements to produce an action and expressions to produce a value.
+
+To help us with that, when you ditch the `{ }` code block in an arrow function, we get an implicit return meaning that even without the `return` keyword, a value will be returned.
+```js
+const addUp = (x, y) => x + y
+```
+These are even more likely to be found as callbacks! Think about map where the return value is key!
+```js
+cats.map(catName => catName.toUpperCase() ) //=> ["ZELDA", "RUMBLE", "SAM", "FLORA"]
+```
+Beware, if you are looking to return an Object from a function expression, you need to wrap it in `( )` parentheses so the function doesn't try and read it as a code block! 
+```js
+cats.map(catName => ({ name: catName, loudName: catName.toUpperCase() }) ) //=> [{name: "Zelda", loudName: "ZELDA"}, {name: "Rumble, loudName: "RUMBLE", ...etc]
+```
 
 ## Recursion
+Can we call a function from within itself? Absolutely! This is recursion.
+```js
+function getFizz(){
+    let random = Math.floor(Math.random() * 30);
+    console.log(random);
+    if (random % 3 === 0) {
+        console.log('Found a fizz!');
+    } else {
+        console.log('Hmm, keep trying...');
+        getFizz();
+    }
+}
+
+getFizz() // What will happen here?
+```
+
+## Closures
+To quote MDN: *"A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function."*
+
+What will happen in this code? Why does this work?
+```js
+function matilda(multiplier){
+  return (x => x * multiplier)
+} // What does the matilda function return?
+
+const timesByEight = matilda(8) // What value has timesByEight been assigned here?
+const eightByThree = timesByEight(3) //=> 24
+
+const timesByTen = matilda(10) // What value has timesByTen been assigned here?
+const tenByThree = timesByTen(3) //=> 30
+```
+
+***
+
+# Exercises
+1. Using the inbuilt string methods only
+- Return the length of a string
+- console.log the word train from this sentence “I dislike trains as a mode of transport”
+- Return the fifth letter of the alphabet from this string ‘abcdefghijklmnopqrstuvwxyz’
+- Make this string shouty by making it all upper case ‘I love you’
+
+2. Using the inbuilt number methods  only
+- Console.log this number to 2 decimal places 1.23456789
+- Change this string into a number “45”
+- Using the inbuilt array methods only
+- Return the first and last elements in this array [‘red’, ‘yellow’, ‘green’, ‘blue’]
+- Add ‘orange’ to the end of this array  [‘red’, ‘yellow’, ‘green’, ‘blue’]
+- console.log the third element in this array  [‘red’, ‘yellow’, ‘green’, ‘blue’]
+- Find the minimum value in this array [23123, 2, -328, 0]
+
+3. Your own function
+- Write a function that takes three inputs. One should be a country, one should be the length of flight to get there and one the final should be the place where someone lives. The function should return a sentence that describes the person's journey.
+- Adapt your function to assume that someone always starts their journey in London.
+
+4. Pick a JS library and explore - consider a circumstance in which you feel this library could be useful to you. Share your findings with the group - there are so many, we are sure to come up with a nice variety!
+
+5. As a longer-term project, come up with an idea for a small library you would like to build yourself. A library does not have to be super extensive - being very good at one specific thing can be of great value. Start making some functions you would like to have in your library...
