@@ -1,5 +1,5 @@
 ### Study Notes
-[Actions in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Actions-in-JavaScript)
+| [Actions in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Actions-in-JavaScript) | [Publishing an NPM package](https://github.com/getfutureproof/fp_guides_wiki/wiki/Publishing-an-NPM-package)|
 
 # Exercises
 1. Using the inbuilt string methods only
