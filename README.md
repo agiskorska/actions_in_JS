@@ -1,5 +1,5 @@
 ### Study Notes
-| [Actions in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Actions-in-JavaScript) | [Publishing an NPM package](https://github.com/getfutureproof/fp_guides_wiki/wiki/Publishing-an-NPM-package)|
+| [Actions in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Actions-in-JavaScript) | [Publishing an NPM package](https://github.com/getfutureproof/fp_guides_wiki/wiki/Publishing-an-NPM-package) |
 
 # Exercises
 1. Using the inbuilt string methods only
@@ -16,7 +16,7 @@
 - Return the first and last elements in this array `[‘red’, ‘yellow’, ‘green’, ‘blue’]`
 - Add ‘orange’ to the end of this array  `[‘red’, ‘yellow’, ‘green’, ‘blue’]`
 - console.log the third element in this array `[‘red’, ‘yellow’, ‘green’, ‘blue’]`
-- Find the minimum value in this array `[23123, 2, -328, 0]
+- Find the minimum value in this array `[23123, 2, -328, 0]`
 
 4. Your own function
 - Write a function that takes three inputs. One should be a country, one should be the length of flight to get there and one the final should be the place where someone lives. The function should return a sentence that describes the person's journey.
