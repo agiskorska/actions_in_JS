@@ -1,8 +1,9 @@
 {
   "name": "demo-pig-latiniser",
   "version": "1.0.0",
-  "description": "| [Actions in JavaScript](https://github.com/getfutureproof/fp_guides_wiki/wiki/Actions-in-JavaScript) | [Publishing an NPM package](https://github.com/getfutureproof/fp_guides_wiki/wiki/Publishing-an-NPM-package)|",
-  "main": "index.js",
+  "description": "Basic Pig Latiniser",
+  "main": "./src/pigLatin.js",
+  "bin": "index.js",
   "scripts": {
     "test": "jest --watch",
     "coverage": "jest --coverage"
