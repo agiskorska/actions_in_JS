@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const meow = require("meow");
-const translate = require("./pigLatiniser").translate;
+const translate = require("./src/pigLatin").translate;
 
 const cli = meow(`
     Usage
